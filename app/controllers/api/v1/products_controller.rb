@@ -7,4 +7,9 @@ class Api::V1::ProductsController < ApplicationController
           render :json => @products
          
   end
+
+
+  def product_params
+      params.require(:product).permit(:name, :price)
+    end
 end

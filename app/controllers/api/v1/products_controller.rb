@@ -4,8 +4,28 @@ class Api::V1::ProductsController < ApplicationController
     
     	@products=Product.all
        
-          render :json => @products
+          render json: @products
          
+  end
+
+
+  def create
+
+  	product=Product.new(product_params)
+
+  	if product.save
+
+  		render json: product, status: 201
+
+
+  	else
+
+  		render json: {errors: product.errors}, status: 422
+
+
+  	end
+
+
   end
 
 

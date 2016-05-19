@@ -54,7 +54,7 @@ class Api::V1::ProductsController < ApplicationController
 
   	product=Product.find(params[:id])
   	if product.destroy
-  		render json: {status:204}
+  		render json:{}, status:204
 
   	end
 
